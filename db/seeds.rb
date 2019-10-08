@@ -8,3 +8,8 @@
 
 
 User.create(username: "Nicole", email: "nicole@email.com", password: "password")
+User.create(username: "Sara", email: "sara@email.com", password: "password")
+User.create(username: "Jason", email: "jason@email.com", password: "password")
+User.create(username: "John", email: "john@email.com", password: "password")
+
+Business.create(name: "The Women's Shop", tax_id: 98765, user_id: 1)
