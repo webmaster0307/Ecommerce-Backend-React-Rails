@@ -1,7 +1,7 @@
 class Business < ApplicationRecord
 
     belongs_to :user
-    has_many :products
+    has_many :products, dependent: :destroy
 
     validates :name, :tax_id, presence: true
     validates :name, :tax_id, uniqueness: true
