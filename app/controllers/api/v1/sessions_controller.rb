@@ -7,14 +7,11 @@ class API::V1::SessionsController < ApplicationController
         if @user && @user.authenticate(params[:session][:user][:password])
             set_session
 
-            resp = { user: @user}
-            render json: resp, status: :ok
+            render json: @user, status: :ok
         else
-            resp = {
-                error: "Invalid credentials",
-                details: @user.errors.full_messages
+            render json: {
+                error: "Invalid Credentials"
             }
-            render json: resp, status: :unauthorized
         end
     end
 
