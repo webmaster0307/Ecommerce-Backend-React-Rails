@@ -1,4 +1,6 @@
-class BusinessSerializer < ActiveModel::Serializer
+class BusinessSerializer 
+  include FastJsonapi::ObjectSerializer
+  
   attributes :id, :name, :tax_id
 
   belongs_to :user

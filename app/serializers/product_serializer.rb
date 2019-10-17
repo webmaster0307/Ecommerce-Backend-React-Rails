@@ -1,4 +1,6 @@
-class ProductSerializer < ActiveModel::Serializer
+class ProductSerializer 
+  include FastJsonapi::ObjectSerializer
+
   attributes :id, :name, :description, :category, :subcategory, :price, :business_id, :item_number
 
   has_many :images, dependent: :destroy
