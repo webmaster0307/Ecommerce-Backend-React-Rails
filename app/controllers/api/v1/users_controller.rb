@@ -5,6 +5,6 @@ class API::V1::UsersController < ApplicationController
         render json: @users
     end
 
-    def new
+    def create
     end
 end
