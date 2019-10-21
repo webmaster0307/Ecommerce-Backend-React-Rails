@@ -8,4 +8,10 @@ class ApplicationController < ActionController::API
       def logged_in?
         !!current_user
       end
+
+      private
+
+      def set_session
+          session[:user_id] = @user.id
+      end
 end
