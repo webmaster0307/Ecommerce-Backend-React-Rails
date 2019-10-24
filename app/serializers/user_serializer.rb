@@ -3,5 +3,5 @@ class UserSerializer
   
   attributes :id, :username, :email, :password_digest
 
-  has_many :businesses, dependent: :destroy
+  has_many :businesses, serializer: BusinessSerializer 
 end

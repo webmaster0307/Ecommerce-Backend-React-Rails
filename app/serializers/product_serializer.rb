@@ -6,5 +6,6 @@ class ProductSerializer
   has_many :images, dependent: :destroy
   has_many :colors, dependent: :destroy
   belongs_to :business
+  belongs_to :category
 
 end
