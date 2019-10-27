@@ -12,7 +12,8 @@ class CategorySerializer
         subcategory: product.subcategory.id,
         price: product.price,
         item_number: product.item_number,
-        business_id: product.business_id
+        business_id: product.business_id,
+        image: product.image
       }
     end
   end

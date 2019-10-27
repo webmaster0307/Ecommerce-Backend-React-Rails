@@ -1,7 +1,7 @@
 class ProductSerializer 
   include FastJsonapi::ObjectSerializer
 
-  attributes :id, :name, :description, :category, :subcategory, :price, :business_id, :item_number
+  attributes :id, :name, :description, :category, :subcategory, :price, :business_id, :item_number, :image
 
 
   belongs_to :business
