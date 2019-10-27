@@ -13,7 +13,8 @@ class CategorySerializer
         price: product.price,
         item_number: product.item_number,
         business_id: product.business_id,
-        image: product.image
+        image: product.image,
+        id: product.id
       }
     end
   end
