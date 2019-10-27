@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_26_104047) do
+ActiveRecord::Schema.define(version: 2019_10_27_010503) do
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_10_26_104047) do
     t.integer "item_number"
     t.integer "category_id"
     t.integer "subcategory_id"
+    t.string "image"
   end
 
   create_table "subcategories", force: :cascade do |t|

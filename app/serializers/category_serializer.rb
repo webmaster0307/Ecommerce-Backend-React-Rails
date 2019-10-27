@@ -1,6 +1,6 @@
 class CategorySerializer
   include FastJsonapi::ObjectSerializer
-  attributes :id, :name
+  attributes :id, :name, :image
 
 
   attribute :products do |category|

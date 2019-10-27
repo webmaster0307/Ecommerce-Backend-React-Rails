@@ -27,6 +27,7 @@ Category.create(name: "Kitchen Appliances")
 Category.create(name: "Kids")
 Category.create(name: "Toys")
 Category.create(name: "Baby")
+Category.create(name: "Pantry", image: "https://images.pexels.com/photos/42317/cereal-spoonful-strawberry-spoon-42317.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")
 
 Subcategory.create(name: "Tops")
 Subcategory.create(name: "Sweaters")
