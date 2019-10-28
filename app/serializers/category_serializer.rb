@@ -19,7 +19,15 @@ class CategorySerializer
     end
   end
 
-  has_many :subcategories, :through => :products 
+  attribute :subcategories do |category|
+    category.subcategories.map do |subcategory|
+      {
+      subcategory_name: subcategory.name,
+      subcategory_id: subcategory.id,  
+      }
+    end
+  end
+  # has_many :subcategories, :through => :products 
 
   # has_many :products, serializer: ProductSerializer
 
