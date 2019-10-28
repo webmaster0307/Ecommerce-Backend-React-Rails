@@ -19,6 +19,8 @@ class CategorySerializer
     end
   end
 
+  has_many :subcategories, :through => :products 
+
   # has_many :products, serializer: ProductSerializer
 
 end
