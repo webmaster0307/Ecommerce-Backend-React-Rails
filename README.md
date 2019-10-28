@@ -1,24 +1,21 @@
-# README
+This is a Rails E-commerce application that allows a business to sell products.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Install Instructions
 
-Things you may want to cover:
+git@github.com:nicoledag/rails-js-project-manager.git
 
-* Ruby version
+cd rails-js-project-manager
 
-* System dependencies
+bundle install
 
-* Configuration
+rake db:migrate
 
-* Database creation
+Contributing
 
-* Database initialization
+Bug reports and pull requests are welcome on GitHub at git@github.com:nicoledag/rails-project-manager-app.git. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-* How to run the test suite
+Authors: Nicole Dagnenica
 
-* Services (job queues, cache servers, search engines, etc.)
+Technology Used: Object Oriented Ruby programming language, Session and Bcrypt for secure session, Active Record for database management.
 
-* Deployment instructions
-
-* ...
+License: The gem is available as open source under the terms of the MIT License.
