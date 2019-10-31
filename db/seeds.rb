@@ -49,6 +49,7 @@ Product.create(item_number: 67897, name: "Denim Jeans", category_id: 2, subcateg
 Product.create(item_number: 90754, name: "Sweater", category_id: 2, subcategory_id: 2, description: "Mens Soft Sweater", price: 40, business_id: 18)
 Product.create(item_number: 89939, name: "Casual Tee", category_id: 2, subcategory_id: 1, description: "Mens Casual Tee", price: 30, business_id: 18)
 
+w = Product.create(item_number: 66666, name: "Casual Tee", category_id: 1, subcategory_id: 1, description: "Womens Casual Tee", price: 25, business_id: 15, image: "https://images.pexels.com/photos/428338/pexels-photo-428338.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")
 
 
 Color.create(color_name: "Dark Blue", available_qty: 50, product_id: 1)

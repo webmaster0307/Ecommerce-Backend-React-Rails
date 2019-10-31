@@ -19,7 +19,8 @@ class ProductSerializer
     product.colors.map do |color|
       {
         color_name: color.color_name,
-        available_qty: color.available_qty
+        available_qty: color.available_qty,
+        color_id: color.id
       }
     end
   end
