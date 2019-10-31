@@ -11,10 +11,6 @@ Rails.application.routes.draw do
     namespace :v1 do      
       resources :users, :products, :businesses, :colors, :images, :categories, :subcategories
 
-      resources :users do
-        resources :businesses 
-      end
-
       resources :products do
         resources :colors
       end
