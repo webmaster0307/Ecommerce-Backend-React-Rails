@@ -6,5 +6,19 @@ class API::V1::BusinessesController < ApplicationController
         render json: businesses_json
     end
 
+    def create
+        @business = current_user.businesses.build(business_params)
+        if @business.save
+            render json:  BusinessSerializer.new(@businesses), status: :created
+        else
+            error_resp = {
+              error: @business.errors.full_messages.to_sentence
+            }
+            render json: error_resp, status: :unprocessable_entity
+        end
+    end
 
+    def business_params
+        params.require(:business).permit(:name, :tax_id)
+      end
 end
