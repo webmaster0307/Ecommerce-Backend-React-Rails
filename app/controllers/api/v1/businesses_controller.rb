@@ -7,9 +7,11 @@ class API::V1::BusinessesController < ApplicationController
     end
 
     def create
+
+        # binding.pry
         @business = current_user.businesses.build(business_params)
         if @business.save
-            render json:  BusinessSerializer.new(@businesses), status: :created
+            render json:  BusinessSerializer.new(@business).serialized_json, status: :created
         else
             error_resp = {
               error: @business.errors.full_messages.to_sentence
