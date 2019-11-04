@@ -11,6 +11,14 @@ Rails.application.routes.draw do
     namespace :v1 do      
       resources :users, :products, :businesses, :colors, :images, :categories, :subcategories
 
+      resources :businesses do
+        resources :products
+      end
+
+      resources :categories do 
+        resources :products
+      end
+
       resources :products do
         resources :colors
       end
@@ -19,10 +27,7 @@ Rails.application.routes.draw do
         resources :reviews
       end
 
-      resources :businesses do
-        resources :products
-      end
-
+    
     end
   end
 
