@@ -1,7 +1,7 @@
 class BusinessSerializer 
   include FastJsonapi::ObjectSerializer
   
-  attributes :id, :name, :tax_id
+  attributes :id, :name, :tax_id, :created_at
 
   attribute :products do |business|
     business.products.map do |product|
