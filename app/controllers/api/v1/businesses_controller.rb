@@ -31,23 +31,36 @@ class API::V1::BusinessesController < ApplicationController
     end
 
     def update 
-
         # binding.pry
         if business_user_equals_current_user && @business.update(business_params)
             render json:  BusinessSerializer.new(@business).serialized_json, status: :created
           else
             error_resp = {
-              error: @trip.errors.full_messages.to_sentence
+              error: @business.errors.full_messages.to_sentence
             }
            render json: error_resp, status: :unprocessable_entity
           end
     end
 
+    def destroy
+        # binding.pry
+        if business_user_equals_current_user
+            @business.destroy
+            render json:  { data: "Business successfully destroyed" }, status: :ok
+        else
+            error_resp = {
+                error: "Business not found and not destroyed"
+            }
+            render json: error_resp, status: :unprocessable_entity
+        end
+    end
+
+
+    private
+
     def business_params
         params.require(:business).permit(:name, :tax_id)
       end
-
-private
 
     def set_business
         @business = Business.find_by(id: params[:id])
