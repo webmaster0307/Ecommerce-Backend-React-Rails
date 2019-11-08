@@ -14,4 +14,8 @@ class ApplicationController < ActionController::API
       def set_session
           session[:user_id] = @user.id
       end
+
+      def business_user_equals_current_user
+        @business.user == current_user
+    end
 end

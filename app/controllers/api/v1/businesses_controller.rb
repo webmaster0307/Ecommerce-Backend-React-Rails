@@ -66,9 +66,7 @@ class API::V1::BusinessesController < ApplicationController
         @business = Business.find_by(id: params[:id])
     end
 
-     def business_user_equals_current_user
-         @business.user == current_user
-     end
+   
 
 
 end

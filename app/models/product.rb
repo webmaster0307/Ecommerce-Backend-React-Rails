@@ -9,7 +9,7 @@ class Product < ApplicationRecord
 
     validates :name, :description, :price, :item_number, presence: true
     validates :item_number, uniqueness: true
-    validates :price, :item_number, numericality: { only_integer: true }
+    validates :price, numericality: { only_integer: true }
     validates :price, length: { maximum: 5 }
     validates :description, length: { maximum: 200 }
 end
