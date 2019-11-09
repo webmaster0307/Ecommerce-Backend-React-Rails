@@ -14,7 +14,7 @@ class API::V1::ProductsController < ApplicationController
         if business_user_equals_current_user && @product = @business.products.build(product_params)
             
             if @product.save
-                render json:  ProductSerializer.new(@product).serialized_json, status: :created
+                render json:  BusinessSerializer.new(@business).serialized_json, status: :created
 
             else
                 error_resp = {
