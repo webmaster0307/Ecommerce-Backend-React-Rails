@@ -9,6 +9,7 @@ class API::V1::ProductsController < ApplicationController
     end
 
     def create
+        # binding.pry
         @business = Business.find(params[:business_id].to_i)
         if business_user_equals_current_user && @product = @business.products.build(product_params)
             
