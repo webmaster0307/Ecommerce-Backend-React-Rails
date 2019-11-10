@@ -15,6 +15,8 @@ class API::V1::ProductsController < ApplicationController
             
             if @product.save
                 render json:  BusinessSerializer.new(@business).serialized_json, status: :created
+                # render json:  ProductSerializer.new(@product).serialized_json, status: :created
+
 
             else
                 error_resp = {
