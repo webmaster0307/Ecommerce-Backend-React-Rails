@@ -1,5 +1,8 @@
 class API::V1::ProductsController < ApplicationController
 
+    before_action :set_product, only: [:show, :edit, :update, :destroy]
+    before_action :set_product_business, only: [:update]
+
     def index
         @products = Product.all 
         # render json: @products
@@ -15,8 +18,6 @@ class API::V1::ProductsController < ApplicationController
             
             if @product.save
                 render json:  BusinessSerializer.new(@business).serialized_json, status: :created
-                # render json:  ProductSerializer.new(@product).serialized_json, status: :created
-
 
             else
                 error_resp = {
@@ -29,15 +30,40 @@ class API::V1::ProductsController < ApplicationController
 
     end
 
+    def show
+    end
 
-    # {"name"=>"Shirt", "description"=>"Dress shirt", "price"=>"60", "image"=>"https://images.pexels.com/photos/2050511/pexels-photo-2050511.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", 
-    # "category_id"=>"1", "subcategory_id"=>"1", "business_id"=>"15", 
-    # "item_number"=>"ck2qeue7z00003g5zgldu3g6d"
+    def edit
+    end
+
+    def update
+        # binding.pry
+        if business_user_equals_current_user && @product.update(product_params)
+            render json:  ProductSerializer.new(@product).serialized_json, status: :created
+          else
+            error_resp = {
+              error: @business.errors.full_messages.to_sentence
+            }
+           render json: error_resp, status: :unprocessable_entity
+          end
+    end
+
+    def destroy
+    end
+
     
     private
 
     def product_params
         params.require(:product).permit(:name, :description, :price, :image, :item_number, :category_id, :subcategory_id, :business_id)
       end
+
+    def set_product
+        @product = Product.find_by(id: params[:id])
+    end
+
+    def set_product_business
+        @business = Business.find_by(id: params[:business_id])
+    end
 
 end
