@@ -49,6 +49,17 @@ class API::V1::ProductsController < ApplicationController
     end
 
     def destroy
+        # binding.pry
+        if current_user.businesses.find(@product.business_id)
+            @product.destroy
+            render json:  { data: "Product successfully destroyed" }, status: :ok
+        else
+            error_resp = {
+                error: "Product not found and not destroyed"
+            }
+            render json: error_resp, status: :unprocessable_entity
+        end
+
     end
 
     
