@@ -17,5 +17,17 @@ class ApplicationController < ActionController::API
 
       def business_user_equals_current_user
         @business.user == current_user
-    end
+      end
+
+      def current_user_business_product
+        current_user.businesses.find(@product.business_id)
+      end
+
+      def set_product
+        @product = Product.find_by(id: params[:id])
+     end
+
+      def set_product_business
+        @business = Business.find_by(id: params[:business_id])
+     end
 end

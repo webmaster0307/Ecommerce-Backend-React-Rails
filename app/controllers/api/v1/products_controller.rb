@@ -26,8 +26,6 @@ class API::V1::ProductsController < ApplicationController
                 render json: error_resp, status: :unprocessable_entity
             end
          end
-
-
     end
 
     def show
@@ -50,7 +48,7 @@ class API::V1::ProductsController < ApplicationController
 
     def destroy
         # binding.pry
-        if current_user.businesses.find(@product.business_id)
+        if current_user_business_product
             @product.destroy
             render json:  { data: "Product successfully destroyed" }, status: :ok
         else
@@ -69,12 +67,12 @@ class API::V1::ProductsController < ApplicationController
         params.require(:product).permit(:name, :description, :price, :image, :item_number, :category_id, :subcategory_id, :business_id)
       end
 
-    def set_product
-        @product = Product.find_by(id: params[:id])
-    end
+    # def set_product
+    #     @product = Product.find_by(id: params[:id])
+    # end
 
-    def set_product_business
-        @business = Business.find_by(id: params[:business_id])
-    end
+    # def set_product_business
+    #     @business = Business.find_by(id: params[:business_id])
+    # end
 
 end
