@@ -42,7 +42,7 @@ class API::V1::ProductsController < ApplicationController
             render json:  ProductSerializer.new(@product).serialized_json, status: :created
           else
             error_resp = {
-              error: @business.errors.full_messages.to_sentence
+              error: @product.errors.full_messages.to_sentence
             }
            render json: error_resp, status: :unprocessable_entity
           end
