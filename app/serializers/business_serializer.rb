@@ -10,6 +10,8 @@ class BusinessSerializer
         description: product.description,
         subcategory_name: product.subcategory.name,
         subcategory_id: product.subcategory.id,
+        category_name: product.category.name,
+        category_id: product.category.id,
         price: product.price,
         item_number: product.item_number,
         business_id: product.business_id,
