@@ -37,6 +37,18 @@ class API::V1::ColorsController < ApplicationController
         end
     end
 
+    def destroy
+        # binding.pry
+        if @product = Product.find_by(id: params[:product_id])
+            @color.destroy
+            render json:  ProductSerializer.new(@product).serialized_json
+        else
+            render json: {error: 'Cannot destroy'}
+        end
+
+
+    end
+
     private
 
     def color_params
