@@ -48,14 +48,13 @@ class API::V1::ProductsController < ApplicationController
 
     def destroy
         # binding.pry
-        if current_user_business_product
+        
+        # NEED TO KEEP @BUSINESS VARIABLE IN ACTION AND NOT SET BEFORE SO IT CAN BE RETURNED TO FRONT END
+        if current_user_business_product && @business = Business.find_by(id: params[:business_id])
             @product.destroy
-            render json:  { data: "Product successfully destroyed" }, status: :ok
+            render json:  BusinessSerializer.new(@business).serialized_json
         else
-            error_resp = {
-                error: "Product not found and not destroyed"
-            }
-            render json: error_resp, status: :unprocessable_entity
+            render json: {error: 'Cannot destroy'}
         end
 
     end
