@@ -37,7 +37,7 @@ class API::V1::ProductsController < ApplicationController
     def update
         # binding.pry
         if business_user_equals_current_user && @product.update(product_params)
-            render json:  ProductSerializer.new(@product).serialized_json, status: :created
+            render json:  BusinessSerializer.new(@business).serialized_json, status: :created
           else
             error_resp = {
               error: @product.errors.full_messages.to_sentence
