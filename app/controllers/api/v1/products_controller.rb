@@ -66,12 +66,4 @@ class API::V1::ProductsController < ApplicationController
         params.require(:product).permit(:name, :description, :price, :image, :item_number, :category_id, :subcategory_id, :business_id)
       end
 
-    # def set_product
-    #     @product = Product.find_by(id: params[:id])
-    # end
-
-    # def set_product_business
-    #     @business = Business.find_by(id: params[:business_id])
-    # end
-
 end
